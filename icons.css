@@ -1,0 +1,18 @@
+@font-face{
+    font-family: 'font-awesome';
+    src: url('fotsawesome/webfonts/fa-regular-400.ttf') ;
+    font-display: block;
+    /* line-height: 1; */
+    font-weight: 400;
+}
+
+.f400{
+    font-weight: 400;
+    font-family: 'font-awesome';
+    color: #fff;
+}
+
+.f900{
+    font-weight: 400;
+    font-family: 'font-awesome';
+}

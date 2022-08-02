@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="/fotsawesome/all.min.css"> -->
+    <link rel="stylesheet" href="/fotsawesome/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     
+    <div id="app" v-cloak>
+        <header class="header">
+            <img :src="glares" alt="" class="glares">
+            <div class="navbar" :class="{container: isContainer}">
+                <div class="navbar__logo">
+                    <img src="images/footer-logo.png" alt="">
+                </div>
+                <div class="navbar__phone">
+                    <div class="phone-line1"></div>
+                    <div class="phone__content">
+                        <img src="images/phone.svg" alt="">
+                        <p>+ 82 (10) 7526-9192 </p>
+                        <!-- <a href="#!" class="phone__link"><i class="fas fa-times"></i></a> -->
+                    </div>                   
+                </div>
+                <input type="checkbox" class="input" id="check-menu" v-on:click="burgerMenu">
+                        <div class="hamburger-lines" >
+                            <span class="line line1"></span>
+                            <span class="line line2"></span>
+                            <span class="line line3"></span>
+                        </div>
+                <!-- <div class="phone-line2"></div> -->
+            </div>
+            <div class="header__content " :class="{container: isContainer}">
+                <h3>Добро пожаловать в онлайн школу </h3>
+                <h1>VeraVla edu!</h1>
+                <h4>Переквалифицируйся в разработчика искусственного интеллекта и получи высокооплачиваемую работу</h4>
+                <div class="header__info">
+                    <div class="header__img">
+                        <img src="images/diploma.svg" alt="">
+                    </div>
+                    <div class="header__text">
+                        <h5>Мы обучаем с гарантией! </h5>
+                        <p>Первый месяц действует гарантия 100% возврата денег, если тебя не устроят наши курсы</p>
+                    </div>
+                </div>
+                <a href="#!" v-on:click="popup" class="header__btn">
+                    Записаться на ознакомительный вебинар
+                </a>
+            </div>
+            <div class="scroll-down">
+                <div class="scroll-eclipse">
+                    <div class="scroll-circle"></div>
+                </div>
+                <p>Листайте вниз</p>
+            </div>
+            <div class="header-circle">
+            </div>
+        </header>
+
+        <section class="section1" >
+            <div class="section1__content" :class="{container: isContainer}">
+                <h2> <span> 7 причин</span> почему именно мы? </h2>
+                <div class="section1__items">
+                    <div 
+                    :class="'item ' + item.class" 
+                    :key="items.id" 
+                    v-for="(item, index) in items">
+                        <img :src="item.image" alt="">
+                        <p>{{item.paragraph}}</p>
+                        <div class="item-cloud"></div>
+                    </div>
+                </div>
+            </div>
+           
+        </section>
+
+        <section class="section2">
+            <div class="section2__content" :class="{container: isContainer}">
+                <h3><span>Искусственный интеллект</span> - это круто? </h3>
+                <div class="section2__items">
+                    <div 
+                    :class="'element ' + el.class" 
+                    :key="elements.id" 
+                    v-for="(el, index) in elements">
+                        <img :src="tip" alt="">
+                        <p>{{el.paragraph}}</p>
+                    </div>
+                </div>
+                <button class="section2__btn" v-on:click="popup">Записаться на ознакомительный вебинар</button>
+            </div>
+            <img src="images/ai.png" alt="" class="section2__img">
+            <!-- <div class="section2__circle"></div> -->
+        </section>
+
+        <section class="section3">
+            <div class="section3__content" :class="{container: isContainer}">
+                <h3><span>Важно</span> понимать что</h3>
+                <div class="section3__items">
+                    <div  
+                    :class="'unit ' + unit.class" 
+                    v-for="unit in units">
+                        <img :src="unit.img" alt="">
+                        <p>{{unit.paragraph}}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section4">
+            <div class="section4__content" :class="{container: isContainer}">
+                <h3>Почему именно наш курс?<span> Все просто! </span></h3>
+                <div class="section4__items">
+                    <div class="text" v-for="info in information">
+                        <img :src="tip2" alt="">
+                        <p>{{info.paragraph}}</p>
+                    </div>
+                </div>
+                <button class="section4__btn" v-on:click="popup">
+                    Записаться на ознакомительный вебинар
+                </button>
+            
+            </div>
+            <div class="section4__img">
+                <img src="images/light-brain2.png" alt="">
+            </div>
+        </section>
+
+        <section class="section5">
+            <div class="section5__content" :class="{container: isContainer}">
+                <h4><span>Что я узнаю</span> из этих курсов? </h4>
+                <p class="section5-paragraph">Полностью весь курс состоит из 3 частей</p>
+                <div class="accordion">
+                    <div class="accordion-item" v-for="item in accordionItems">
+                        <div :class="'accordion-btn ' + item.class" v-on:click="clickAcc">
+                            <div class="btn-content">
+                                <div class="btn-circle"></div>
+                                <h5 class="btn-title">{{item.title}}</h5>
+                                <p class="btn-paragraph">{{item.paragraph}}</p>
+                            </div>
+                            <div class="btn-arrow">
+                                <i class="fad f900 fa-long-arrow-up">
+
+                                </i>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="content-item" v-for="content in accordionContent">
+                                <div class="content-circle">
+                                    <p>{{content.number}}</p>
+                                </div>
+                                <div class="content-text">
+                                    <h5>{{content.title}}</h5>
+                                    <p>{{content.paragraph}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="section6">
+            <div class="section6__content" :class="{container: isContainer}">
+                <div class="section6-text">
+                    <h3>
+                        Автор курса 
+                    </h3>
+                    <p v-for="par in paragraphs">
+                        {{par}}
+                    </p>
+                </div>
+                <div class="section6-man">
+                    <div class="man-text">
+                        <h4>Владимир Ким</h4>
+                        <p>Ведущий специалист</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section6-img">
+                <img src="images/lines.png" alt="">
+            </div>
+        </div>
+
+        <div class="slider1-block">
+            <div :class="{container: isContainer}">
+                <div class="block-top">
+                    <h3>Объявления школы</h3>
+                    <button>Все объявления</button>
+                </div>
+                <div class="slider1">
+                    <div class="slider1-content">
+                        <div 
+                        class="slider1-slide"
+                        v-for="(slide, index) in slider1"
+                        >
+                         <img :src="slide.image" alt="">
+                         <h4>Заголовок объявления из несколькиз слов</h4>
+                         <p>Искусственный интеллект - это не одна дисциплина, как думают многие, а совокупность различных 
+                            <span id="dots">...</span>
+                            <span id="more">между собой направлений.</span></p>
+                         <a class="more-text" v-on:click="moreText">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="slider1-btns">
+                        <button class="slider1-prev">
+                            <i class="fa-solid f900 fa-arrow-left-long"></i>
+                        </button>
+                        <button class="slider1-next">
+                            <i class="fa-solid f900 fa-arrow-right-long"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="slider2-block">
+            <div :class="{container: isContainer}">
+                <div class="block-top">
+                    <h3>Вакансии</h3>
+                    <button>Все вакансии</button>
+                </div>
+                <div class="slider2">
+                    <div class="slider2-content">
+                        <div 
+                        class="slider2-slide"
+                        v-for="(slide, index) in slider1"
+                        >
+                         <img :src="slide.image" alt="">
+                         <h4>Заголовок объявления из несколькиз слов</h4>
+                         <p>Искусственный интеллект - это не одна дисциплина, как думают многие, а совокупность различных 
+                            <span id="dots">...</span>
+                            <span id="more">между собой направлений.</span></p>
+                         <a class="more-text" v-on:click="moreText">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="slider1-btns">
+                        <button class="slider2-prev">
+                            <i class="fa-solid f900 fa-arrow-left-long"></i>
+                        </button>
+                        <button class="slider2-next">
+                            <i class="fa-solid f900 fa-arrow-right-long"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="footer">
+            <div class="footer__content container">
+                <div class="footer-logo">
+                    <img src="images/footer-logo.png" alt="">
+                </div>
+                <div class="footer-connection">
+                   <div class="footer-contacts">
+                       <div class="email">
+                         <img src="images/email.svg" alt="">
+                         <p>veravlaedu@gmail.com </p>
+                       </div>
+                       <div class="tel">
+                        <img src="images/phone.svg" alt="">
+                        <p>+ 82 (10) 7526-9192 </p>
+                       </div>
+                   </div>
+                   <div class="social-networks">
+                    <p>Мы в соц сетях</p>
+                    <ul>
+                        <li v-for="(icon, index) in socialNetworks">
+                            <img :src="icon.img" alt="">
+                        </li>
+                    </ul>
+                   </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="window-scroll" v-on:click="scrollToTop">
+            <a href="#!">
+                <div class="window-circle">
+                    <i class="fa-solid f900 fa-arrow-up"></i>
+                </div>
+            </a>
+            <!-- <p>Подняться вверх</p> -->
+        </div>
+
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <div class="popup-body">
+                    <h3><span>Записаться</span> на ознакомительный вебинар</h3>
+                <p>Ваше ФИО:</p>
+                <input type="text" >
+                <p>Номер телефона:</p>
+                <input type="text" >
+                <p>Ваш e-mail:</p>
+                <input type="email" name="" id="">
+                <p>Выберите дату и время вебинара:</p>
+                <input type="datetime" name="" id="">
+                <a href="#!">Записаться</button>
+                   
+                </div>
+                <a href="#!" class="x-mark" v-on:click="closePopup">
+                    <i class="fa-solid f900 fa-xmark"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
